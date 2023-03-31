@@ -1,5 +1,43 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GameScreen/GameScreen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Font/BLADRMF_.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Screens/SideWalkTexture.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 2 )
 
 [node name="GameScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1031.0
+margin_bottom = 607.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.0
+margin_top = -40.0
+margin_right = 195.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+text = "Score: 1"
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -382.5
+margin_top = 67.0
+margin_right = 382.5
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 1 )
+text = "Bblade Frogger"

@@ -4,7 +4,8 @@ const CAR = preload("res://Car/Car.tscn")
 
 func _ready():
 	$YSort/Player.position = $PlayerStartPos.position
-
+	$CanvasLayer/TestScore.text = "Score: " + str(Global.score)
+	
 func car_spawn(start_pos):
 	var car = CAR.instance() 
 	var car_start_node_name = "StartPositions/CarStart" + str(start_pos)
@@ -12,6 +13,13 @@ func car_spawn(start_pos):
 	$YSort.add_child(car)
 	var timer_node_name = "CarTimers/Timer" + str(start_pos)
 	get_node(timer_node_name).wait_time = rand_range(1.6, 2.2)
+	
+func _process(delta):
+	if $YSort/Player.position.y <= -220:
+		Global.score += 1
+		$YSort/Player.position = $PlayerStartPos.position
+		$WinSound.play()
+	$CanvasLayer/TestScore.text = "Score: " + str(Global.score)	
 	
 
 func _on_Timer1_timeout(): car_spawn(1)
