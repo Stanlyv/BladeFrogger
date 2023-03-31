@@ -30,7 +30,7 @@
 [ext_resource path="res://Assets/Player/Walk_Down_2.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 24 )
+extents = Vector2( 15, 13 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -51,9 +51,11 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 6
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 11 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

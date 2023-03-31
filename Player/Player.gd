@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const speed = 200
+const SPEED = 200
 
 func _process(delta):
 	var velocity = Vector2.ZERO
@@ -13,7 +13,7 @@ func _process(delta):
 		velocity.x += 1
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += 1
-	move_and_slide(velocity.normalized() * speed)
+	move_and_slide(velocity.normalized() * SPEED)
 	player_animation(velocity)
 
 func player_animation(velocity):
